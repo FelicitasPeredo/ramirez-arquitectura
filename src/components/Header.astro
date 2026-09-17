@@ -14,14 +14,14 @@ const pillClass =
 ---
 
 <header class="relative w-full bg-brand-grey">
-  <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-4 py-4 md:px-8">
-    <a href="/" class="flex items-center gap-4">
+  <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4 md:px-8">
+    <a href="/" class="flex min-w-0 items-center gap-4">
       <img
         src="https://i.ibb.co/1J7V4xFq/logo-letra-banca-sin-fondo.png"
         alt="Logo Ramirez Arquitectura"
-        class="h-[3.5rem] w-auto md:h-[5.5rem]"
+        class="h-[3.5rem] w-auto shrink-0 md:h-[5.5rem]"
       />
-      <span class="text-lg font-[350] uppercase tracking-[2px] [word-spacing:3px] text-white md:text-[30px] md:tracking-[5px] md:[word-spacing:6px]">
+      <span class="min-w-0 break-words text-lg font-[350] uppercase tracking-[5px] [word-spacing:6px] text-white md:text-[30px]">
         Ramirez Arquitectura
       </span>
     </a>
@@ -29,7 +29,7 @@ const pillClass =
     <button
       id="menu-toggle"
       type="button"
-      class="flex items-center gap-2 rounded-[0.1875rem] bg-brand-grey px-[1rem] py-[0.8rem] text-white shadow-[0_0.125rem_0.25rem_rgba(0,0,0,0.5)] transition-colors hover:bg-black/20"
+      class="flex shrink-0 items-center gap-2 rounded-[0.1875rem] bg-brand-grey px-[1rem] py-[0.8rem] text-white shadow-[0_0.125rem_0.25rem_rgba(0,0,0,0.5)] transition-colors hover:bg-black/20"
       aria-expanded="false"
       aria-controls="main-nav"
       aria-label="Abrir menú"
