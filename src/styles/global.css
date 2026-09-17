@@ -1,1 +1,13 @@
 @import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
+
+@theme {
+  --font-sans: "Lato", "Roboto", sans-serif;
+  --color-brand-grey: #616161;
+  --color-brand-dark: #3e3636;
+  --color-brand-light: #bdbdbd;
+}
+
+body {
+  font-family: var(--font-sans);
+}

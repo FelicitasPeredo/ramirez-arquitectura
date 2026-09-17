@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import Header from '../components/Header.astro';
 ---
 
 <html lang="es">
@@ -7,11 +8,14 @@ import '../styles/global.css';
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Ramirez Arquitectura</title>
 	</head>
 	<body>
-		<h1 class="text-3xl font-bold underline">Ramirez Arquitectura</h1>
+		<Header />
+		<main class="p-8">
+			<p class="text-brand-dark">El resto del Home se arma en el próximo paso.</p>
+		</main>
 	</body>
 </html>
