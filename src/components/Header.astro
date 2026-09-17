@@ -29,17 +29,12 @@ const pillClass =
     <button
       id="menu-toggle"
       type="button"
-      class="flex shrink-0 items-center gap-2 rounded-[0.1875rem] bg-brand-grey px-[1rem] py-[0.8rem] text-white shadow-[0_0.125rem_0.25rem_rgba(0,0,0,0.5)] transition-colors hover:bg-black/20"
+      class="shrink-0 rounded-[0.1875rem] bg-brand-grey py-[0.8rem] pl-[0.8rem] pr-[0.8rem] text-base font-light uppercase tracking-[0.0625rem] [word-spacing:0.1875rem] text-white shadow-[0_0.125rem_0.25rem_rgba(0,0,0,0.5)] transition-colors hover:bg-black/20 md:min-w-[8rem] md:pr-0 md:text-left"
       aria-expanded="false"
       aria-controls="main-nav"
       aria-label="Abrir menú"
     >
-      <svg id="icon-open" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-      </svg>
-      <svg id="icon-close" xmlns="http://www.w3.org/2000/svg" class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-      </svg>
+      <span id="menu-toggle-label">Menu</span>
     </button>
   </div>
 
@@ -69,23 +64,22 @@ const pillClass =
 <script>
   const toggle = document.getElementById("menu-toggle");
   const nav = document.getElementById("main-nav");
-  const iconOpen = document.getElementById("icon-open");
-  const iconClose = document.getElementById("icon-close");
+  const label = document.getElementById("menu-toggle-label");
+
+  const setOpen = (open: boolean) => {
+    nav?.classList.toggle("hidden", !open);
+    toggle?.setAttribute("aria-expanded", String(open));
+    if (label) label.textContent = open ? "Cerrar" : "Menu";
+  };
 
   toggle?.addEventListener("click", () => {
-    const isHidden = nav?.classList.toggle("hidden");
-    toggle.setAttribute("aria-expanded", String(!isHidden));
-    iconOpen?.classList.toggle("hidden");
-    iconClose?.classList.toggle("hidden");
+    setOpen(nav?.classList.contains("hidden") ?? false);
   });
 
   document.addEventListener("click", (event) => {
     if (!(event.target instanceof Node)) return;
     if (nav?.classList.contains("hidden")) return;
     if (toggle?.contains(event.target) || nav?.contains(event.target)) return;
-    nav?.classList.add("hidden");
-    toggle?.setAttribute("aria-expanded", "false");
-    iconOpen?.classList.remove("hidden");
-    iconClose?.classList.add("hidden");
+    setOpen(false);
   });
 </script>
